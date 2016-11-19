@@ -1,0 +1,877 @@
+/*
+(C) Nauval Azhar 2014
+*/
+body {
+	margin:0;
+	background: #f9f9f9;
+	overflow-y:scroll;
+	overflow-x: auto;
+	font:14px 'Roboto';
+}
+
+* {
+	box-sizing: border-box;
+}
+
+a {
+	color: #e74c3c;
+	text-decoration: none;
+}
+
+a:hover {
+	opacity: .8;
+}
+
+.sidebar {
+	background: #F9FAFC;
+	border-right: 1px solid #ddd;
+	padding: 10px;
+	width: 201px;
+	min-height: 100%;
+	overflow: auto;
+	position: fixed;
+	margin-top: 50px;
+}
+
+.sidebar .menu li {
+	display: block;
+}
+
+.sidebar .menu li i {
+	margin-right: 10px;
+}
+
+.sidebar .menu li.grup {
+	padding: 10px 20px;
+	margin-left: -10px;
+	color: #999;
+}
+
+.sidebar .menu li a {
+	display: block;
+	padding: 10px 20px;
+	margin: 0 0 0 -10px;
+	width: 200px;
+	text-decoration: none;
+	color: #000;
+	transition:all .3s;
+	z-index: 9;
+	position: relative;
+}
+
+.sidebar .menu li a:after {
+	content: " ";
+	position: absolute;
+	top: 35px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: #e74c3c;
+	left: 50%;
+	transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	z-index: -9;
+	transition: all .3s;
+	-webkit-transition: all .3s;
+	-o-transition: all .3s;
+	-moz-transition: all .3s;
+}
+
+.sidebar .menu li a:hover:after {
+	width: 100%;
+}
+
+.sidebar .menu li a:hover,
+.sidebar .menu li a:focus {
+	color: #e74c3c;
+}
+
+.sidebar .menu li.active a {
+	background-color: #e74c3c;
+	color: #fff;
+}
+
+.navbar {
+	height: 60px;
+	background: #fff;
+	margin: -10px -8px 0 0;
+	position: fixed;
+	z-index: 99;
+	left: 0;
+	top: 0;
+	width: 100%;
+	border-bottom: 1px solid #F9FAFC;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+
+.navbar .logo {
+	float: left;
+	width: 201px;
+	height: 60px;
+	text-align: center;
+	background-color: #fff;
+	border-right: 1px solid #F9FAFC;
+}
+
+.navbar .logo img {
+	width: 100px;
+	margin: 20px auto;
+}
+
+.navbar .nav.right {
+	float: right;
+}
+
+.navbar .nav li {
+	float: left;
+	display: block;
+}
+
+.navbar .nav li a {
+	display: block;
+	height: 60px;
+	padding: 0 15px;
+	line-height: 5em;
+	color: #000;
+	text-decoration: none;
+	font-size: 14px;
+	transition:all 0.3s;
+}
+
+.navbar .nav li a:hover {
+	opacity: .6;
+}
+
+.navbar .nav li.dropdown {
+	position: relative;
+}
+
+.navbar .nav li.dropdown ul.child {
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+	position: absolute;
+	right: 0;
+	width: 200px;
+	display: none;
+	box-shadow: 0 1px 2px #ddd;
+}
+
+.navbar .nav li.dropdown ul.child li {
+	float: none;
+}
+
+.navbar .nav li.dropdown ul.child li a {
+	display: inline-block;
+	padding: 8px 20px;
+	height: initial;
+	line-height: initial;
+	width: 200px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.navbar .nav li.dropdown:hover ul.child {
+	display: block;
+}
+
+.navbar .nav li.dropdown ul.child li a i.fa.w-space {
+	width: 20px;
+}
+
+.navbar .nav li.dropdown ul.child li.divider {
+	width: 80%;
+	margin: 5px auto;
+	display: block;
+	height: 1px;
+	background-color: #eee;
+}
+
+.navbar .nav li.dropdown ul.child li a:hover {}
+
+.main {
+	display: inline-block;
+	width: 100%;
+	float: left;
+	padding-right: 20px;
+	padding-left: 220px;
+	padding-top: 60px;
+}
+
+.main > h1,
+.main h2 {
+	font-size: 20px;
+	color: #333;
+	font-weight: normal;
+	margin-bottom:0;
+}
+
+.main > p {
+	margin-top: 5px;
+	color: #888;
+}
+
+.main .blok h2 {
+	margin-bottom: 10px;
+}
+
+.mini-title {
+	font-size: 16px !important;
+}
+
+.main .blok {
+	margin-top: 20px;
+	overflow: hidden;
+}
+
+.main .mailbox {
+	padding: 10px;
+	background: #fff;
+	overflow: hidden;
+	width: 950px;
+	box-shadow:  0 0 2px #ddd;
+}
+
+.main .mailbox h2 {
+	margin: 0;
+	color: #999;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	padding-left: 10px;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+.main .mailbox .side {
+	float: left;
+	width: 250px;
+}
+
+.main .mailbox .folder {
+}
+
+.main .mailbox .folder li {
+	display: block;
+}
+
+.main .mailbox .folder li i {
+	margin-right: 5px;
+}
+
+.main .mailbox .folder li a {
+	display: block;
+	padding: 10px 15px;
+	color: #333;
+	text-decoration: none;
+	transition:all .3s;
+}
+
+.main .mailbox .folder li a:hover {
+	background: #f9f9f9;
+}
+
+.main .mailbox .folder li a.selected {
+	border-left: 5px solid #e74c3c;
+}
+
+.main .mailbox .isi {
+	float: left;
+	margin-left: 20px;
+	height: 500px;
+	overflow: auto;
+}
+
+.main .mailbox .isi .list.hidden {
+	opacity: .3;
+}
+
+.main .mailbox .isi .list {
+	display: block;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+	overflow: hidden;
+	width: 650px;
+	height: 20px;
+	transition:all .3s;
+}
+
+.main .mailbox .isi .list:hover {
+	height: 50px;
+}
+
+.main .mailbox .isi .list .nama {
+	float: left;
+	width: 200px;
+	color: #333;
+}
+.main .mailbox .isi .list .subject {
+	float: left;
+	color: #333;
+}
+
+.main .mailbox .isi .list .pesan {
+	float: left;
+	margin-left: 10px;
+	color: #999;
+}
+
+.main .mailbox .isi .list .waktu {
+	float: right;
+	color: #333;
+}
+
+.main .mailbox .isi .list .footer {
+	margin-top: 10px;
+}
+
+.main .mailbox .isi .list .footer li a.red:hover {
+	color: red;
+}
+
+.main .mailbox .isi .list .footer li {
+	float: left;
+	display: block;
+}
+
+.main .mailbox .isi .list .footer li a {
+	padding: 5px;
+	color: #333;
+	text-decoration: none;
+}
+
+.main .mailbox .isi .list .footer li a:hover {
+	text-decoration: underline;
+	color: #e74c3c;
+}
+
+.main .mailbox .isi .read {
+	width: 650px;
+}
+
+.main .mailbox .isi .read-des {
+	padding-bottom: 10px;
+}
+
+.main .mailbox .isi .read-des .header {
+	padding-bottom: 5px;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 20px;
+}
+
+.main .mailbox .isi .read-des .nama {
+}
+
+.main .mailbox .isi .read-des .waktu {
+	float: right;
+	margin-top: -20px;
+}
+
+.main .mailbox .isi .read-des .des {
+	margin-top: 10px;
+}
+
+.main .mailbox .isi .read-des .des label {
+	display: block;
+	margin-top: 5px;
+}
+
+.main .mailbox .isi .read-pesan {
+	margin-top: 20px;
+}
+
+.main .not-found {
+	padding: 15px 10px;
+	background: #fff;
+	border-left: 10px solid #ddd;
+	font: 14px georgia;
+	font-style: italic;
+	padding-left: 20px;
+}
+
+.main .blok .mini-menu {
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.main .blok .mini-menu li.first {
+	border: none;
+	margin-left: -10px;
+}
+
+.main .blok .mini-menu li {
+	float: left;
+	display: block;
+	border-left: 1px solid #ccc;
+	padding: 0 10px;
+}
+
+.main .blok .mini-menu li a {
+	display: block;
+	padding: 3px;
+	text-decoration: none;
+	color: #333;
+}
+
+.main .blok .mini-menu li a:hover {
+	text-decoration: underline;
+	color: #e74c3c;
+}
+
+.main .blok a.button {
+	padding: 10px 20px;
+	background: #e74c3c;
+	color: #fff;
+	border-radius: 3px;
+	text-decoration: none;
+	transition:all .3s;
+	margin-left: 5px;
+	font-size: 16px;
+}
+
+.main .blok a.button:hover {
+	background: #2478db;
+}
+
+.main .blok .form {
+}
+
+.main .blok .form .img {
+	width: 250px;
+}
+
+.main .blok .form .img img {
+	width: 100%;
+	border-radius: 5px;
+}
+
+.input.lebar {
+	width: 500px;
+}
+
+.input.textarea {
+	width: 500px;
+	height: 80px;
+}
+
+.main .blok .group-field {
+	padding: 10px;
+}
+
+.main .blok .group-field .txt {
+	margin-right: 50px;
+	width: 300px;
+}
+
+.input {
+	padding: 10px 20px;
+	font-size: 16px;
+	width: 350px;
+	border: 1px solid #ddd;
+	margin-top: 10px;
+	transition:all .2s;
+}
+
+.input:hover {
+	border: 1px solid #999;
+}
+
+.input:focus {
+	border: 1px solid #e74c3c;
+	box-shadow: inset 0 0 3px #999;
+}
+
+.main .blok .form .browse {
+	padding: 10px 20px;
+	font-size: 16px;
+	border: 1px solid #ddd;
+	background: #fff;
+	margin-top: 10px;
+}
+
+.main .blok .form .button.red {
+	background: #e74c3c;
+}
+
+.main .blok .form .button.red:hover {
+	background: #c0392b;
+}
+
+.main .blok .form .button {
+	padding: 10px 20px;
+	background: #e74c3c;
+	color: #fff;
+	border-radius: 3px;
+	border: none;
+	margin-top: 20px;
+	cursor: pointer;
+	transition:all .3s;
+}
+
+.main .blok .form .button:hover {
+	background: #c0392b;
+}
+
+.main .blok img.favicon {
+	width: 50px;
+	height: 50px;
+}
+
+.main .blok .form label {
+	cursor: pointer;
+	margin-bottom: 20px;
+	display: inline-block;
+}
+
+.main .blok .form .editor {
+	display: block;
+	width: 100%;
+	height: 600px;
+	resize:vertical;
+	overflow: scroll;
+	font-size: 14px;
+	font-family: monospace;
+	line-height: 20px;
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+
+.main .blok .form .editor:hover {
+	border: 1px solid #999;
+}
+
+.main .blok .form .editor:focus {
+	border: 1px solid #e74c3c;
+	box-shadow: inset 0 0 3px #ccc;
+}
+
+.main .blok .file-list {
+	overflow: hidden;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	float: right;
+}
+
+.main .blok .file-list li {
+	float: left;
+	display: block;
+}
+
+.main .blok .file-list li a.selected {
+	color: #e74c3c;
+}
+
+.main .blok .file-list li a.selected:hover {
+}
+
+.main .blok .file-list li a {
+	display: inline-block;
+	color: #333;
+	margin: 0 8px;
+}
+
+.main .blok .file-list li:not(:last-child):after {
+	content: "/";
+}
+
+.main .blok .file-list li a:hover {
+	text-decoration: underline;
+}
+
+.main .blok .tema-list {
+	float: left;
+	margin-top: 10px;
+}
+
+.main .blok .select {
+	padding: 10px 15px;
+	border: 1px solid #ddd;
+}
+
+.main .blok .menu {
+	display: inline-block;
+	width: 100%;
+}
+
+.main .blok .menu li {
+	float: left;
+	display: block;
+}
+
+.main .blok .menu li i {
+	float: left;
+}
+
+.main .blok .menu li div.txt {
+	margin-left: 20px;
+	float: right;
+}
+
+.main .blok .menu li a {
+	display: inline-block;
+	padding: 10px;
+	margin-bottom: 10px;
+	background: #fff;
+	margin-right: 20px;
+	color: #333;
+	border: 1px solid #ddd;
+	transition:all .3s;
+}
+
+.main .blok .menu li a:hover {
+}
+
+.main .tema {
+	overflow: hidden;
+	padding: 5px;
+}
+
+.hidden {
+	opacity: 0.3;
+}
+
+.main .tema .thumb {
+	overflow: hidden;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	width: 200px;
+	background: #fff;
+	float: left;
+	padding: 10px;
+	box-shadow: 0 0 3px #ccc;
+	width: 250px;
+}
+
+.main .tema .gambar {
+	width: 100%;
+	height: 150px;
+	overflow: hidden;
+}
+
+.main .tema .gambar img {
+	width: 100%;
+}
+
+.main .tema .nama {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.main .tema .des {
+	color: #999;
+	text-align: center;
+	margin-top: 5px;
+}
+
+.main .tema .footer {
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+.block {
+	padding: 15px;
+	background: #fff;
+	margin-bottom: 10px;
+	text-align: left;
+	box-shadow: 0 0 3px #ccc;
+}
+
+.block.error {
+	border-left: 8px solid #e74c3c;
+}
+
+.block.success {
+	border-left: 8px solid #1abc9c;
+}
+
+footer {
+	display: inline-block;
+	width: 100%;
+	margin-top: 30px;
+	padding: 10px;
+	background-color: #fff;
+	padding-left: 220px;
+	color: #777;
+	border-top: 1px solid #eee;
+}
+
+footer .copyright {
+	float: left;
+	display: block;
+}
+
+footer .version {
+	float: right;
+	display: block;
+	margin-left: 5px;
+}
+
+input[type=radio] {
+    display:none;
+}
+ 
+input[type=radio] + label {
+    display:inline-block;
+    margin:-2px;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    background-image: -moz-linear-gradient(top,#fff,#e6e6e6);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));
+    background-image: -webkit-linear-gradient(top,#fff,#e6e6e6);
+    background-image: -o-linear-gradient(top,#fff,#e6e6e6);
+    background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+    background-repeat: repeat-x;
+    border: 1px solid #ccc;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+    border-bottom-color: #b3b3b3;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+}
+ 
+input[type=radio]:checked + label {
+       background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+    -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+        background-color:#e0e0e0;
+}
+
+@media screen and (max-width: 480px) {
+	.sidebar {
+		display: none;
+		position: absolute;
+		z-index: 9;
+		border-bottom: 1px solid #ddd;
+	}
+
+	.navbar .logo {
+		display: none;
+	}
+
+	footer {
+		padding-left: 10px;
+	}
+
+	.main {
+		padding-left: 20px;
+	}
+}
+
+.form-horizontal label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+input.btn {
+	cursor: pointer;
+	border: none;
+}
+
+/**
+ * Button
+ */
+
+
+.btn.yellow {
+	background: #f1c40f;
+	color:#fff;
+}
+
+.btn.yellow:hover {
+	background: #f39c12;
+	color:#fff;
+}
+
+.btn.aktif {
+	cursor: default;
+	background: #1abc9c;
+	color: #fff;
+}
+
+.btn.aktif:hover {
+	background: #16a085;
+	color: #fff;
+}
+
+.btn.green {
+	background: #1abc9c;
+	color: #fff;
+}
+
+.btn.green:hover {
+	background: #2abc5c;
+	color: #fff;
+}
+
+.btn.red {
+	background: #e74c3c;
+	color: #fff;
+}
+
+.btn.red:hover {
+	background: #c0392b;
+	color: #fff;
+}
+
+.btn.primary {
+	background: #e74c3c;
+	color: #fff;
+}
+
+.btn.primary:hover {
+	background: #c0392b;
+	color: #fff;
+}
+
+.btn {
+	padding: 10px 20px;
+	background: #eee;
+	border-radius: 3px;
+	color: #333;
+	text-decoration: none;
+	transition:all .3s;
+	font-size: 14px;
+}
+
+.btn:hover {
+	background: #ddd;
+}
+
+.btn.right {
+	float: right;
+}
+
+h1 .btn {
+	padding: 7px 10px;
+}
+
+.button-group .btn {
+	border-radius: initial;
+	margin-right: -3px;
+}
+
+.button-group .btn:first-child {
+	border-radius: 3px 0 0 3px;
+}
+
+.button-group .btn:last-child {
+	border-radius: 0 3px 3px 0;
+}

@@ -1,0 +1,63 @@
+/*
+Nauval Azhar (C) 2014
+*/
+
+body {
+	background: #f2f2f2;
+}
+
+.notfound {
+	margin: 150px auto;
+	width: 700px;
+	text-align: center;
+}
+
+.notfound h1 {
+	font-family: arial;
+	text-transform: capitalize;
+}
+
+.notfound h3 {
+	font-family: arial;
+	color: #595959;
+}
+
+.notfound .footer {
+	margin-top: 50px;
+}
+
+.notfound .footer .copyright {
+	font: 14px arial;
+}
+
+.notfound .menu {
+	overflow: hidden;
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.notfound h4 {
+	margin: 0;
+	font-family: arial;
+}
+
+.notfound .menu li {
+	display: block;
+	float: left;
+}
+
+.notfound li a {
+	display: block;
+	margin-right: 10px;
+	color: #333;
+	text-decoration: none;
+	font: 14px arial;
+	font-weight: bold;
+}
+
+.notfound li a:hover {
+	color: #3498db;
+	text-decoration: underline;
+}
